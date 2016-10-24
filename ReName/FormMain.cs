@@ -40,9 +40,14 @@ namespace ReName
         }
         private void tbNewName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            switch(e.KeyChar)
             {
-                justDoIt();
+                case (char)Keys.Enter:
+                    justDoIt();
+                    break;
+                case (char)Keys.Space:
+                    e.KeyChar = '\0';
+                    break;
             }
         }
         private void justDoIt()
