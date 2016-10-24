@@ -5,7 +5,6 @@ using System.Windows.Forms;
 
 namespace ReName
 {
-
     public partial class FormMain : Form
     {
         public FormMain()
@@ -115,7 +114,6 @@ namespace ReName
             s = selectedPath.Split('\\');
             return s[s.Length - 1].Replace(".sln","");
         }
-
         private void linkLabHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/sminav/ReName/blob/master/README.md");
