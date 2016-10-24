@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ReName
 {
-    
+
     public partial class FormMain : Form
     {
         public FormMain()
@@ -40,19 +33,14 @@ namespace ReName
         }
         private void tbNewName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch(e.KeyChar)
-            {
-                case (char)Keys.Enter:
-                    justDoIt();
-                    break;
-                case (char)Keys.Space:
-                    e.KeyChar = '\0';
-                    break;
-            }
+            if (e.KeyChar == (char)Keys.Enter)
+                justDoIt();
+            else if (e.KeyChar == (char)Keys.Space)
+                e.KeyChar = '\0';
         }
         private void justDoIt()
         {
-            if (tbOldName.Text == tbNewName.Text || tbNewName.Text.Length == 0) MessageBox.Show("Incorrect name");
+            if (tbOldName.Text == tbNewName.Text || tbNewName.Text.Length == 0 || string.IsNullOrWhiteSpace(getDir(openFileDialog.FileName))) MessageBox.Show("Incorrect name");
             else
             {
                 DirectoryInfo pathDI = new DirectoryInfo(getDir(openFileDialog.FileName));
@@ -126,6 +114,11 @@ namespace ReName
         {
             s = selectedPath.Split('\\');
             return s[s.Length - 1].Replace(".sln","");
+        }
+
+        private void linkLabHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/sminav/ReName/blob/master/README.md");
         }
     }
 }

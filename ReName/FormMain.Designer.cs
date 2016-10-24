@@ -34,6 +34,7 @@
             this.tbNewName = new System.Windows.Forms.TextBox();
             this.btnRename = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.linkLabHelp = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btnChose
@@ -42,6 +43,7 @@
             this.btnChose.Name = "btnChose";
             this.btnChose.Size = new System.Drawing.Size(75, 23);
             this.btnChose.TabIndex = 0;
+            this.btnChose.TabStop = false;
             this.btnChose.Text = "Choose";
             this.btnChose.UseVisualStyleBackColor = true;
             this.btnChose.Click += new System.EventHandler(this.btnChose_Click);
@@ -69,6 +71,7 @@
             this.btnRename.Name = "btnRename";
             this.btnRename.Size = new System.Drawing.Size(75, 23);
             this.btnRename.TabIndex = 3;
+            this.btnRename.TabStop = false;
             this.btnRename.Text = "ReName";
             this.btnRename.UseVisualStyleBackColor = true;
             this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
@@ -77,11 +80,23 @@
             // 
             this.openFileDialog.Filter = "|*.sln";
             // 
+            // linkLabHelp
+            // 
+            this.linkLabHelp.AutoSize = true;
+            this.linkLabHelp.LinkColor = System.Drawing.Color.Maroon;
+            this.linkLabHelp.Location = new System.Drawing.Point(179, 99);
+            this.linkLabHelp.Name = "linkLabHelp";
+            this.linkLabHelp.Size = new System.Drawing.Size(29, 13);
+            this.linkLabHelp.TabIndex = 4;
+            this.linkLabHelp.Text = "Help";
+            this.linkLabHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabHelp_LinkClicked);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(220, 133);
+            this.Controls.Add(this.linkLabHelp);
             this.Controls.Add(this.btnRename);
             this.Controls.Add(this.tbNewName);
             this.Controls.Add(this.tbOldName);
@@ -104,6 +119,7 @@
         private System.Windows.Forms.TextBox tbNewName;
         private System.Windows.Forms.Button btnRename;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.LinkLabel linkLabHelp;
     }
 }
 
